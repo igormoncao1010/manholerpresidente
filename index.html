@@ -8,6 +8,15 @@
 
   <title>Fernando Manholér - Presidente 2026</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+    <section class="hero-responsivo">
+  <picture>
+    <!-- Imagem para mobile (até 767px) -->
+    <source media="(max-width: 767px)" srcset="imagens/background/01.png">
+    
+    <!-- Imagem padrão (desktop e iPad) -->
+    <img src="img/desktop.jpg" alt="Imagem de capa responsiva">
+  </picture>
+</section>
   <style>
     /* Reset básico */
     * {
@@ -410,19 +419,137 @@
   display: block;
 }
 
+
+
+
+
+.donation-section {
+  background-color: #04A69A;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 40px auto;
+  border: 4px solid #ffffff22;
+}
+
+.donation-section img.logo {
+  width: 250px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.donation-section h2 {
+  font-size: 30px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.donation-section p {
+  font-size: 18px;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.donation-section img.candidate {
+  width: 300px;
+
+}
+
+.donation-section button {
+  background: linear-gradient(to bottom, #ff4444, #cc0000);
+  color: white;
+  font-size: 18px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.donation-section button:hover {
+  background: linear-gradient(to bottom, #cc0000, #990000);
+}
+
+.popup, .thankyou {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content, .thankyou-content {
+  background-color: #fefefe;
+  color: #333;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.popup-content img {
+  width: 220px;
+  margin: 20px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.popup-content button,
+.thankyou-content button {
+  margin: 10px 5px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.copy-btn {
+  background: linear-gradient(to bottom, #0077cc, #004499);
+  color: white;
+}
+
+.copy-btn:hover {
+  background: linear-gradient(to bottom, #005fa3, #003366);
+}
+
+.finalize-btn {
+  background: linear-gradient(to bottom, #444, #222);
+  color: white;
+}
+
+.finalize-btn:hover {
+  background: linear-gradient(to bottom, #222, #000);
+}
+
+.thankyou h1 {
+  font-size: 28px;
+  color: #10335b;
+  margin-bottom: 20px;
+}
+
+.thankyou p {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
   </style>
 </head>
+
 <body>
 
-  <section class="hero-responsivo">
-  <picture>
-    <!-- Imagem para mobile (até 767px) -->
-    <source media="(max-width: 767px)" srcset="imagens/background/01.png">
-    
-    <!-- Imagem padrão (desktop e iPad) -->
-    <img src="img/desktop.jpg" alt="Imagem de capa responsiva">
-  </picture>
-</section>
+
 
 
 <header>
@@ -515,6 +642,49 @@
 
 
 
+
+
+
+
+<section class="donation-section">
+  <img src="imagens/background/02.png" alt="Logo Campanha" class="logo">
+  <h2>Ajude a construir um novo Brasil com Fernando Manholér</h2>
+  <p>Sua contribuição fortalece nossa luta por um país mais justo, unido e com oportunidades para todos.</p>
+  <img src="imagens/background/03.png" alt="Fernando Manholér" class="candidate">
+  <br>
+  <button onclick="openPopup()">Doar Agora</button>
+</section>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2>Doe via Pix</h2>
+    <img src="imagens/qrcode/01.png" alt="QR Code Pix">
+    <p id="pixKey">chavepix@campanha.com</p>
+    <button class="copy-btn" onclick="copyPix()">Copiar Chave Pix</button>
+    <button class="finalize-btn" onclick="finalizeDonation()">Finalizar</button>
+  </div>
+</div>
+
+<!-- MENSAGEM DE AGRADECIMENTO -->
+<div class="thankyou" id="thankyou">
+  <div class="thankyou-content">
+    <h1>Obrigado pelo seu apoio!</h1>
+    <p>
+      Sua contribuição é fundamental para transformar o Brasil que sonhamos.  
+      Juntos, com coragem e compromisso, vamos construir um futuro mais justo, com educação, saúde e dignidade para todos os brasileiros.
+    </p>
+    <button onclick="closeThankYou()">Fechar</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
   <section id="galeria" class="section" data-aos="zoom-in">
     <h2>Galeria de Fotos</h2>
     <div class="galeria">
@@ -582,6 +752,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
   AOS.init({ duration: 1000, once: false });
+
+
+
+
+  function openPopup() {
+  document.getElementById('popup').style.display = 'flex';
+}
+
+function copyPix() {
+  const pixKey = document.getElementById("pixKey").innerText;
+  navigator.clipboard.writeText(pixKey);
+  alert("Chave Pix copiada com sucesso!");
+}
+
+function finalizeDonation() {
+  document.getElementById('popup').style.display = 'none';
+  document.getElementById('thankyou').style.display = 'flex';
+}
+
+function closeThankYou() {
+  document.getElementById('thankyou').style.display = 'none';
+}
+
 </script>
 </body>
 </html>
