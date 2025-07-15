@@ -1,780 +1,219 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="icon" type="image/png" href="00.png" />
-
-
-  <title>Fernando Manholér - Presidente 2026</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-    <section class="hero-responsivo">
-  <picture>
-    <!-- Imagem para mobile (até 767px) -->
-    <source media="(max-width: 767px)" srcset="imagens/background/01.png">
-    
-    <!-- Imagem padrão (desktop e iPad) -->
-    <img src="img/desktop.jpg" alt="Imagem de capa responsiva">
-  </picture>
-</section>
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      overflow-x: hidden; /* evita rolagem horizontal */
-      max-width: 100vw; /* evita overflow na largura */
-      font-family: Arial, sans-serif;
-      background-color: #fff;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #04A69A;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      /* para evitar que o conteúdo dentro quebre layout */
-      overflow: hidden;
-    }
-
-    .top-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      max-width: 100vw;
-    }
-
-    .logo {
-      height: 40px;
-      max-width: 100%;
-    }
-
-    /* Menu hamburguer */
-    .menu-icon {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      z-index: 1100;
-      position: relative;
-      user-select: none;
-      width: 30px; /* largura fixa para não extrapolar */
-      min-width: 30px;
-    }
-
-    .menu-icon span {
-      height: 3px;
-      width: 100%;
-      background: white;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
-      background: #f5f5f5;
-      border-top: 3px solid #009739;
-      width: 100%;
-      max-width: 100vw; /* não ultrapassar a tela */
-      box-sizing: border-box;
-      position: relative;
-      z-index: 999;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #009739;
-      font-weight: bold;
-      padding: 8px 12px;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-
-    nav a:hover {
-      background-color: #ffe600;
-      color: #000;
-      border-radius: 4px;
-    }
-
-    .video-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .video-container video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .banner-text {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      color: #fff;
-      font-size: 2.5rem;
-      font-weight: bold;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 0 20px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 140px 20px 60px;
-    }
-
-   .section {
-  margin-bottom: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-    .section h2 {
-      color: #04A69A;
-      border-left: 6px solid #04A69A;
-      padding-left: 14px;
-      margin-bottom: 25px;
-      font-size: 1.8rem;
-    }
-
-    .bio {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .bio img {
-      width: 220px;
-      border-radius: 100%;
-      border: 4px solid #ffe600;
-    }
-
-    .bio p {
-      flex: 1;
-      font-size: 1.1rem;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: #fff;
-      border: 2px solid #009739;
-      border-left: 10px solid #ffe600;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      color: #04A69A;
-    }
-
-    .noticia {
-      border-bottom: 1px solid #ddd;
-      padding: 20px 0;
-    }
-
-    .galeria, .videos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .galeria img, .videos iframe {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      background: #04A69A;
-      color: #fff;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    footer a {
-      color: #ffe600;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #04A69A;
-      color: white;
-      border-radius: 50%;
-      padding: 15px;
-      font-size: 28px;
-      z-index: 1100;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      animation: pulse 2s infinite;
-      transition: background 0.3s ease;
-      user-select: none;
-      width: 56px;
-      height: 56px;
-      line-height: 26px;
-    }
-
-    .whatsapp-button:hover {
-      background-color: #1ebe5b;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-      70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-    }
-
-    /* Responsivo */
-    @media (max-width: 768px) {
-      .menu-icon {
-        display: flex;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        text-align: center;
-        background: #f5f5f5;
-        width: 100vw; /* garantir largura da tela */
-        max-width: 100vw;
-        position: fixed;
-        top: 60px; /* logo + header fixo */
-        left: 0;
-        padding: 10px 0;
-        border-top: 3px solid #009739;
-        z-index: 999;
-        overflow-x: hidden; /* evitar scroll horizontal */
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        padding: 15px 0;
-        border-bottom: 1px solid #009739;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      nav a:last-child {
-        border-bottom: none;
-      }
-
-      .bio {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .banner-text {
-        font-size: 2rem;
-      }
-
-      .video-container {
-        height: 100vh;
-      }
-    }
-
-
-
-
-
-    .livros-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 20px;
-}
-
-.livro img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.btn-download {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 16px;
-  background-color: #007B3A;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.btn-download:hover {
-  background-color: #005f2b;
-}
-
-
-
-
-
-.noticias-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.noticia-card {
-  background: #ffffff;
-  border-left: 6px solid #009739;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.noticia-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-}
-
-.noticia-card h3 {
-  color: #04A69A;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.noticia-card p {
-  color: #444;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-
-
-
-.video-unico-local {
-  max-width: 960px;
-  margin: 20px auto 0;
-  padding: 0 20px;
-}
-
-.video-unico-local video {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
-
-
-
-
-
-.hero-responsivo {
-  width: 100%;
-  max-height: 500px;
-  overflow: hidden;
-}
-
-.hero-responsivo img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-
-
-
-
-.donation-section {
-  background-color: #04A69A;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  padding: 40px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: 40px auto;
-  border: 4px solid #ffffff22;
-}
-
-.donation-section img.logo {
-  width: 250px;
-  height: 150px;
-  margin-bottom: 20px;
-}
-
-.donation-section h2 {
-  font-size: 30px;
-  color: #ffffff;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px 2px #000;
-}
-
-.donation-section p {
-  font-size: 18px;
-  color: #e0e0e0;
-  margin-bottom: 20px;
-}
-
-.donation-section img.candidate {
-  width: 300px;
-
-}
-
-.donation-section button {
-  background: linear-gradient(to bottom, #ff4444, #cc0000);
-  color: white;
-  font-size: 18px;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: 0.3s;
-}
-
-.donation-section button:hover {
-  background: linear-gradient(to bottom, #cc0000, #990000);
-}
-
-.popup, .thankyou {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.popup-content, .thankyou-content {
-  background-color: #fefefe;
-  color: #333;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 90%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-.popup-content img {
-  width: 220px;
-  margin: 20px 0;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-}
-
-.popup-content button,
-.thankyou-content button {
-  margin: 10px 5px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.copy-btn {
-  background: linear-gradient(to bottom, #0077cc, #004499);
-  color: white;
-}
-
-.copy-btn:hover {
-  background: linear-gradient(to bottom, #005fa3, #003366);
-}
-
-.finalize-btn {
-  background: linear-gradient(to bottom, #444, #222);
-  color: white;
-}
-
-.finalize-btn:hover {
-  background: linear-gradient(to bottom, #222, #000);
-}
-
-.thankyou h1 {
-  font-size: 28px;
-  color: #10335b;
-  margin-bottom: 20px;
-}
-
-.thankyou p {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #333;
-}
-  </style>
+  <title>Campanha Presidencial</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-
-
-
-<header>
-  <div class="top-header">
-    <img class="logo" src="01.svg" alt="Logo">
-    <div class="menu-icon" onclick="document.querySelector('nav').classList.toggle('active')" aria-label="Abrir menu" role="button" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
+  <!-- Topo com imagem e formulário -->
+  <section class="hero">
+    <div class="hero-content">
+     
+      <form class="form" onsubmit="return enviarEmail();">
+        <input type="email" id="email" placeholder="Digite seu e-mail" required />
+        <button type="submit">Inscrever-se</button>
+      </form>
     </div>
+  </section>
+
+  <!-- Menu de navegação com logo -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="imagens/logos/01.svg" alt="Logo" class="logo-img" />
+      
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Propostas</a></li>
+        <li><a href="#">Biografia</a></li>
+        <li><a href="#">Doar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="video-section">
+  <video autoplay muted loop playsinline class="background-video">
+    <source src="videos/brasil.mp4" type="video/mp4" />
+    Seu navegador não suporta vídeo em HTML5.
+  </video>
+  <div class="video-overlay">
+    <img src="imagens/logos/campanha.png" alt="Logo da Campanha" class="video-logo" />
   </div>
+</section>
 
-
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#prioridades">Prioridades</a>
-    <a href="#noticias">Notícias</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#contato">Contato</a>
-  </nav>
-</header>
-
-<section class="banner" data-aos="fade-down">
-  <div class="video-container">
-    <video autoplay muted loop playsinline>
-      <source src="01.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo em background.
-    </video>
-    <div class="banner-text">
-      FERNANDO MANHOLÉR<br>PRESIDENTE 2026
+<section class="about-section">
+  <div class="about-content">
+    <div class="about-text">
+      <h2>Sobre Fernando Manholér</h2>
+      <p>
+        Fernando Manholér é um líder visionário comprometido com o desenvolvimento sustentável, inovação tecnológica e inclusão social no Brasil. Com vasta experiência em gestão pública e privada, Fernando traz um plano de governo focado em educação, saúde e economia que visa transformar o país com justiça e transparência.
+      </p>
+      <p>
+        Sua trajetória é marcada pela luta por políticas públicas que promovem o crescimento econômico aliado à preservação ambiental, fortalecendo as comunidades locais e incentivando o empreendedorismo.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="imagens/pessoas/fernando.png" alt="Fernando Manholér" />
     </div>
   </div>
 </section>
 
-<main class="container">
-  <section id="sobre" class="section" data-aos="fade-up">
-    <h2>Sobre Fernando Manholér</h2>
-    <div class="bio">
-      <img src="01.png" alt="Fernando Manholér">
-      <p>Fernando Manholér é empresário premiado, reconhecido como Empresário do Ano em Alphaville (2024). Preside um grupo internacional atuando em finanças, agronegócio e infraestrutura. Foi homenageado na Câmara Municipal de São Paulo por sua contribuição à segurança. Autor de "Do banco ao Banco" e "O plano de governo", com experiência global em mais de 40 países, é um líder preparado para transformar o Brasil.</p>
-    </div>
-  </section>
 
-  <section id="prioridades" class="section" data-aos="fade-right">
-    <h2>Prioridades de Governo</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Segurança</h3>
-        <p>Investimentos em tecnologia e inteligência policial, combate ao crime organizado e valorização das forças de segurança em todo o país.</p>
+
+<section class="priorities-section fade-in-section">
+  <h2>Prioridades do Governo Fernando Manholér</h2>
+  <div class="priorities-container">
+    <div class="priority-card">
+      <div class="icon-circle">🎓</div>
+      <h3>Educação de Qualidade</h3>
+      <p>Ensino básico, técnico e superior com foco em inclusão e inovação.</p>
+    </div>
+    <div class="priority-card">
+      <div class="icon-circle">🏥</div>
+      <h3>Saúde Humanizada</h3>
+      <p>Sistema eficiente, com mais prevenção, estrutura e dignidade.</p>
+    </div>
+    <div class="priority-card">
+      <div class="icon-circle">💼</div>
+      <h3>Emprego e Renda</h3>
+      <p>Incentivo à economia local, empreendedorismo e qualificação.</p>
+    </div>
+    <div class="priority-card">
+      <div class="icon-circle">🌱</div>
+      <h3>Sustentabilidade</h3>
+      <p>Desenvolvimento com respeito ao meio ambiente e às futuras gerações.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="news-section fade-in-section">
+  <div class="news-header">
+    <h2>Últimas Notícias</h2>
+    <p>Acompanhe as caravanas, encontros e ações de Fernando Manholér pelo Brasil</p>
+  </div>
+
+  <div class="news-grid">
+    <div class="news-card">
+      <img src="imagens/materias/01.jpg" alt="Caravana no Norte">
+      <div class="news-content">
+        <h3>Caravana pelo Norte</h3>
+        <p>Fernando Manholér visita comunidades na região amazônica discutindo educação e infraestrutura.</p>
+        <a href="#">Ler mais</a>
       </div>
-      <div class="card">
-        <h3>Educação</h3>
-        <p>Valorização dos professores, acesso à educação técnica e digital, e ampliação da infraestrutura educacional com foco no futuro.</p>
+    </div>
+
+    <div class="news-card">
+      <img src="imagens/materias/02.jpg" alt="Reunião com lideranças da indústria">
+      <div class="news-content">
+        <h3>Reunião com o setor industrial</h3>
+        <p>Encontro com empresários para debater propostas econômicas e geração de empregos.</p>
+        <a href="#">Ler mais</a>
       </div>
-      <div class="card">
-        <h3>Saúde</h3>
-        <p>Expansão do SUS com mais hospitais, profissionais qualificados e investimentos em prevenção, tecnologia e atendimento humanizado.</p>
+    </div>
+
+    <div class="news-card">
+      <img src="imagens/materias/03.jpg" alt="Evento em universidade pública">
+      <div class="news-content">
+        <h3>Encontro em universidade pública</h3>
+        <p>Debate com jovens universitários sobre tecnologia, inovação e futuro do ensino público.</p>
+        <a href="#">Ler mais</a>
       </div>
     </div>
-  </section>
-
-  <section id="noticias" class="section" data-aos="fade-left">
-  <h2>Últimas Notícias</h2>
-  <div class="noticias-wrapper">
-    
-    <div class="noticia-card">
-      <h3><span>📍</span> Fernando Manholér visita o Nordeste</h3>
-      <p>Milhares acompanham o presidenciável em compromissos que reforçam o desenvolvimento regional e social. A caravana percorreu cinco estados, promovendo diálogo direto com a população.</p>
-    </div>
-
-    <div class="noticia-card">
-      <h3><span>🗣️</span> Reunião com lideranças populares</h3>
-      <p>Fernando Manholér afirma que segurança, educação e saúde serão prioridades absolutas do seu governo. O encontro ocorreu em Brasília com representantes de mais de 20 estados.</p>
-    </div>
-
   </div>
 </section>
 
 
 
-<section id="video-especial" class="section" data-aos="zoom-in-up">
-
-  <div class="video-unico-local">
-    <video controls poster="thumb.jpg">
-      <source src="videos/01.mp4" type="video/mp4">
-      Seu navegador não suporta a reprodução de vídeo.
-    </video>
+<section class="gallery-section fade-in-section">
+  <h2>Galeria de Fotos</h2>
+  <div class="gallery-slider">
+    <button class="gallery-btn prev" onclick="moveSlide(-1)">‹</button>
+    <div class="gallery-track" id="gallery-track">
+      <img src="imagens/galeria-fotos/a.jpeg" alt="Evento 1">
+      <img src="imagens/galeria-fotos/b.jpg" alt="Evento 2">
+      <img src="imagens/galeria-fotos/c.jpg" alt="Evento 3">
+      <img src="imagens/galeria-fotos/d.jpg" alt="Evento 4">
+    </div>
+    <button class="gallery-btn next" onclick="moveSlide(1)">›</button>
   </div>
 </section>
 
 
-
-
-
-
-
-<section class="donation-section">
-  <img src="imagens/background/02.png" alt="Logo Campanha" class="logo">
-  <h2>Ajude a construir um novo Brasil com Fernando Manholér</h2>
-  <p>Sua contribuição fortalece nossa luta por um país mais justo, unido e com oportunidades para todos.</p>
-  <img src="imagens/background/03.png" alt="Fernando Manholér" class="candidate">
-  <br>
-  <button onclick="openPopup()">Doar Agora</button>
-</section>
-
-<!-- POPUP -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <h2>Doe via Pix</h2>
-    <img src="imagens/qrcode/01.png" alt="QR Code Pix">
-    <p id="pixKey">chavepix@campanha.com</p>
-    <button class="copy-btn" onclick="copyPix()">Copiar Chave Pix</button>
-    <button class="finalize-btn" onclick="finalizeDonation()">Finalizar</button>
-  </div>
-</div>
-
-<!-- MENSAGEM DE AGRADECIMENTO -->
-<div class="thankyou" id="thankyou">
-  <div class="thankyou-content">
-    <h1>Obrigado pelo seu apoio!</h1>
-    <p>
-      Sua contribuição é fundamental para transformar o Brasil que sonhamos.  
-      Juntos, com coragem e compromisso, vamos construir um futuro mais justo, com educação, saúde e dignidade para todos os brasileiros.
-    </p>
-    <button onclick="closeThankYou()">Fechar</button>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-  <section id="galeria" class="section" data-aos="zoom-in">
-    <h2>Galeria de Fotos</h2>
-    <div class="galeria">
-      <img src="a.jpeg" alt="Foto 1">
-      <img src="b.jpg" alt="Foto 2">
-      <img src="c.jpg" alt="Foto 3">
-      <img src="d.jpg" alt="Foto 4">
-    </div>
-  </section>
-
-  <section class="section" data-aos="zoom-in-up">
-    <h2>Vídeos da Campanha</h2>
-    <div class="videos">
-      <iframe src="https://www.youtube.com/embed/wn5zXQb8_bA?si=ttLJlG4As_uthjze" title="Vídeo 1" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/EuFlo-82HJU?si=DGDhmAqBjNvLUKsw" title="Vídeo 2" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/W7Ik1JO38C0?si=PDxktHxcHBsp64f-" title="Vídeo 3" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/3TR7fvy2Vl4?si=C7gO-fQryhFE4nci" title="Vídeo 4" allowfullscreen></iframe>
-    </div>
-  </section>
-</main>
-
-<!-- NOVA SEÇÃO: Livros de Fernando Manholér -->
-<section id="livros" class="section" data-aos="fade-up">
-  <h2>Livros de Fernando Manholér</h2>
-  <div class="cards livros-wrapper">
-    
-    <div class="card livro">
-      <img src="imagens/a.png" alt="Capa do Livro Brasil do Amanhã" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
-      <h3>Questão de Soberania</h3>
-      <p>Não somos de esuqerda, nem de direita, somos o Brasil.</p>
-      <a href="pdf/01.pdf" download class="btn-download">📥 Baixar PDF</a>
-    </div>
-
-    <div class="card livro" data-aos="fade-up" data-aos-delay="100">
-      <img src="imagens/b.png" alt="Capa do Livro Educação é Liberdade" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
-      <h3>Camareiras</h3>
-      <p>Mulheres Invisíveis que sutentam o conforto e o luxo.</p>
-      <a href="pdf/02.pdf" download class="btn-download">📥 Baixar PDF</a>
-    </div>
-
-    <div class="card livro" data-aos="fade-up" data-aos-delay="200">
-      <img src="imagens/c.png" alt="Capa do Livro Cidadania na Prática" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
-      <h3>Moda do Século XXI</h3>
-      <p>Um manual sobre o passado, presente e futuro da moda.</p>
-      <a href="pdf/03.pdf" download class="btn-download">📥 Baixar PDF</a>
-    </div>
-
-  </div>
-</section>
-
-
-<footer id="contato" data-aos="fade-up">
-  <p>Entre em contato: contato@manholer2026.com.br</p>
-  <p>Siga nas redes sociais:</p>
-  <a href="#">Facebook</a>
-  <a href="#">Instagram</a>
-  <a href="#">Twitter</a>
-  <p>&copy; 2026 Campanha Fernando Manholér - Todos os direitos reservados</p>
-</footer>
-
-<a class="whatsapp-button" href="https://wa.me/5599999999999" target="_blank" aria-label="Fale no WhatsApp">
-  <img src="wpp.svg" alt="WhatsApp" style="width: 28px; height: 28px; display: block; margin: auto;" />
-</a>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: false });
-
-
-
-
-  function openPopup() {
-  document.getElementById('popup').style.display = 'flex';
-}
-
-function copyPix() {
-  const pixKey = document.getElementById("pixKey").innerText;
-  navigator.clipboard.writeText(pixKey);
-  alert("Chave Pix copiada com sucesso!");
-}
-
-function finalizeDonation() {
-  document.getElementById('popup').style.display = 'none';
-  document.getElementById('thankyou').style.display = 'flex';
-}
-
-function closeThankYou() {
-  document.getElementById('thankyou').style.display = 'none';
-}
-
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
+
+
+<section class="informativos-section fade-in-section">
+  <h2>Informativos Disponíveis</h2>
+  <div class="informativos-grid">
+    <div class="informativo-card">
+      <img src="informativos/capas/a.png" alt="Capa Informativo 1">
+      <h3>Questão de Soberania</h3>
+      <a href="informativos/pdf/01.pdf" target="_blank" class="btn-ler">Ler</a>
+    </div>
+
+    <div class="informativo-card">
+      <img src="informativos/capas/b.png" alt="Capa Informativo 2">
+      <h3>Camareiras - Mulheres Invisíveis</h3>
+      <a href="informativos/pdf/02.pdf" target="_blank" class="btn-ler">Ler</a>
+    </div>
+
+    <div class="informativo-card">
+      <img src="informativos/capas/c.png" alt="Capa Informativo 3">
+      <h3>Moda no Século XXI</h3>
+      <a href="informativos/pdf/03.pdf" target="_blank" class="btn-ler">Ler</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="doacao-section2">
+  <img src="imagens/logos/campanha.png" alt="Logo Campanha" class="logo2" />
+
+  <div class="conteudo-doacao2">
+    <img src="imagens/pessoas/dois.png" alt="Imagem Campanha" class="imagem-campanha2" />
+
+    <div class="texto-e-botao2">
+      <h2>Ajude a construir um novo Brasil</h2>
+      <p>Sua contribuição fortalece nossa luta por um país mais justo, unido e com oportunidades para todos.</p>
+      <button id="btnDoar2">Doar Agora</button>
+    </div>
+  </div>
+
+  <div id="popupDoacao2" class="popup2">
+    <div class="popup-conteudo2">
+      <h3>Faça sua doação via Pix</h3>
+      <img src="qrcode-pix.png" alt="QR Code Pix" class="qrcode2" />
+      <p id="chavePix2">chavepix@campanha.com</p>
+      <button onclick="copiarChavePix2()">Copiar chave Pix</button>
+      <button onclick="fecharPopup2()">Fechar</button>
+    </div>
+  </div>
+
+  <div id="mensagemAgradecimento2" class="mensagem2">
+    <p>Obrigado pela sua doação! 💙</p>
+  </div>
+
+  <audio id="somConfirmacao2" src="confirmacao.mp3" preload="auto"></audio>
+</section>
+
+<footer class="footer-campanha2">
+  <div class="footer-conteudo2">
+    <p><strong>Fernando Manholér 2026</strong></p>
+    <p>CNPJ: 12.345.678/0001-99</p>
+    <p>Campanha registrada conforme legislação eleitoral. As doações estão limitadas aos critérios da Justiça Eleitoral.</p>
+    <p>Endereço: Av. da Democracia, 123 - Brasília/DF</p>
+    <p>Email: contato@manholer2026.com.br</p>
+  </div>
+</footer>
